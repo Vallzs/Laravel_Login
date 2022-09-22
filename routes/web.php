@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\LatihanController;
+use App\Http\Controllers\HomepageController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('', function () {
+  return view('homepage.index');
+  });
+
+  Route::get( '/latihan', [LatihanController::class, 'index']);
+
+  Route::get('/beranda', [LatihanController::class, 'beranda']);
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/homepage', [App\Http\Controllers\HomepageController::class, 'index']);
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
