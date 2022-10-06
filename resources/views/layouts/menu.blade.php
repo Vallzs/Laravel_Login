@@ -8,23 +8,16 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link acti`ve" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="homepage">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Kontak</a>
+            <a class="nav-link" href="kontak">Kontak</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Kategori</a>
+            <a class="nav-link" href="kategori">Kategori</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Produk
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Baju</a></li>
-              <li><a class="dropdown-item" href="#">Celana</a></li>
-              <li><a class="dropdown-item" href="#">Sempak</a></li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="about">About Us</a>
           </li>
         </ul>
       </div>

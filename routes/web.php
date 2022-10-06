@@ -29,3 +29,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/homepage', [App\Http\Controllers\HomepageController::class, 'index']);
 
+Route::get('/about', [HomepageController::class, 'about']);
+Route::get('/kategori', [HomepageController::class, 'kategori']);
+
