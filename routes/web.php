@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\LatihanController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KategoriController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +34,11 @@ Route::get('/homepage', [App\Http\Controllers\HomepageController::class, 'index'
 
 Route::get('/about', [HomepageController::class, 'about']);
 Route::get('/kategori', [HomepageController::class, 'kategori']);
+Route::get('/admin', [DashboardController::class, 'dashboard']);
 
+// Route kategori Group
+// Route::group(['prefix' => 'admin'], function () {
+//     Route::get('/', 'DashboardController@dashboard');
+
+
+// });

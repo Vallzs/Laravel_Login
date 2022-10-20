@@ -23,5 +23,11 @@ class HomepageController extends Controller
         $data = array('title' => 'Halaman tentang kami');
         return view('homepage.kategori', $data);
     }
+
+    public function dashboard()
+    {
+        $data = array('title' => 'Halaman admin');
+        return view('dashboard.index', $data);
+    }
 }
 
