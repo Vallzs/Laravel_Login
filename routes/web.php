@@ -39,16 +39,22 @@ Route::get('/admin', [DashboardController::class, 'dashboard']);
 // Route kategori Group
 Route::prefix('/mahasiswa')->group(function(){
 
+    Route::get('/', function () {
+        return view('mahasiswa.index');
+        });
+
     Route::get('/pendaftaran', function() {
-            return 'Halaman Pendaftaran';
+            return view('mahasiswa.pendaftaran');
     }) ->name('mahasiswa.pendaftaran');
 
     Route::get('/ujian', function() {
-        return 'Halaman Ujian';
+        return view('mahasiswa.ujian');
     }) ->name('mahasiswa.ujian');
 
     Route::get('/nilai', function() {
-    return 'Halaman Nilai';
+        return view('mahasiswa.nilai');
     }) ->name('mahasiswa.nilai');
 
 });
+
+
