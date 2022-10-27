@@ -44,15 +44,21 @@ Route::prefix('/mahasiswa')->group(function(){
         });
 
     Route::get('/pendaftaran', function() {
-            return view('mahasiswa.pendaftaran');
+        $nm = "Ini Halaman Pendaftaran";
+        $kj = "Ini Halaman Pendaftaran";
+            return view('mahasiswa.index', compact ('nm', 'kj' ));
     }) ->name('mahasiswa.pendaftaran');
 
     Route::get('/ujian', function() {
-        return view('mahasiswa.ujian');
+        $nm = "Ini Halaman Ujian";
+        $kj = "Ini Halaman Ujian";
+            return view('mahasiswa.index', compact ('nm', 'kj' ));
     }) ->name('mahasiswa.ujian');
 
     Route::get('/nilai', function() {
-        return view('mahasiswa.nilai');
+        $nm = "Ini Halaman Nilai";
+        $kj = "Ini Halaman Nilai";
+            return view('mahasiswa.index', compact ('nm', 'kj' ));
     }) ->name('mahasiswa.nilai');
 
 });

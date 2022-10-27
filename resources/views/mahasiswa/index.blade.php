@@ -1,3 +1,4 @@
+@include('layouts.template')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,15 @@
     <title>Mahasiswa</title>
 </head>
 <body>
-      <h1>Halaman Mahasiswa</h1>
+    <center>  <h1>Halaman Mahasiswa</h1>
+
+        <a href-{{ Route ('mahasiswa.pendaftaran') }}> Pendaftaran </a>
+        <br>
+        <a href-{{ Route ('mahasiswa.nilai') }}> Nilai </a>
+        <br>
+        <a href-{{ Route ('mahasiswa.ujian') }}> Ujian </a>
+
+
+    </center>
 </body>
 </html>
