@@ -37,8 +37,18 @@ Route::get('/kategori', [HomepageController::class, 'kategori']);
 Route::get('/admin', [DashboardController::class, 'dashboard']);
 
 // Route kategori Group
-// Route::group(['prefix' => 'admin'], function () {
-//     Route::get('/', 'DashboardController@dashboard');
+Route::prefix('/mahasiswa')->group(function(){
 
+    Route::get('/pendaftaran', function() {
+            return 'Halaman Pendaftaran';
+    }) ->name('mahasiswa.pendaftaran');
 
-// });
+    Route::get('/ujian', function() {
+        return 'Halaman Ujian';
+    }) ->name('mahasiswa.ujian');
+
+    Route::get('/nilai', function() {
+    return 'Halaman Nilai';
+    }) ->name('mahasiswa.nilai');
+
+});
