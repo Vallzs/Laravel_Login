@@ -8,13 +8,13 @@
     <title>Mahasiswa</title>
 </head>
 <body>
-    <center>  <h1>Halaman Mahasiswa</h1>
+    <center>  <h1>{{$jd}}</h1>
 
-        <a href-{{ Route ('mahasiswa.pendaftaran') }}> Pendaftaran </a>
+        <a href = {{ Route ('mahasiswa.pendaftaran') }}> Pendaftaran </a>
         <br>
-        <a href-{{ Route ('mahasiswa.nilai') }}> Nilai </a>
+        <a href = {{ Route ('mahasiswa.nilai') }}> Nilai </a>
         <br>
-        <a href-{{ Route ('mahasiswa.ujian') }}> Ujian </a>
+        <a href = {{ Route ('mahasiswa.ujian') }}> Ujian </a>
 
 
     </center>

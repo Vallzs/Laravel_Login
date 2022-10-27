@@ -45,21 +45,22 @@ Route::prefix('/mahasiswa')->group(function(){
 
     Route::get('/pendaftaran', function() {
         $nm = "Ini Halaman Pendaftaran";
-        $kj = "Ini Halaman Pendaftaran";
-            return view('mahasiswa.index', compact ('nm', 'kj' ));
+        $jd = "Ini Halaman Pendaftaran";
+            return view('mahasiswa.index', compact ('nm', 'jd' ));
     }) ->name('mahasiswa.pendaftaran');
 
     Route::get('/ujian', function() {
         $nm = "Ini Halaman Ujian";
-        $kj = "Ini Halaman Ujian";
-            return view('mahasiswa.index', compact ('nm', 'kj' ));
+        $jd = "Ini Halaman Ujian";
+            return view('mahasiswa.index', compact ('nm', 'jd' ));
     }) ->name('mahasiswa.ujian');
 
     Route::get('/nilai', function() {
         $nm = "Ini Halaman Nilai";
-        $kj = "Ini Halaman Nilai";
-            return view('mahasiswa.index', compact ('nm', 'kj' ));
+        $jd = "Ini Halaman Nilai";
+            return view('mahasiswa.index', compact ('nm', 'jd' ));
     }) ->name('mahasiswa.nilai');
+
 
 });
 
