@@ -1,12 +1,12 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LatihanController;
 use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\TransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,49 +19,118 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('', function () {
-  return view('homepage.index');
-  });
+// Route group admin
+Route::group(['prefix' => '/admin'], function (){
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.admin');
 
-  Route::get( '/latihan', [LatihanController::class, 'index']);
+    //Route::group parent kategori
+        Route::group(['prefix' => '/kategori'], function (){
+            Route::get('/', [KategoriController::class, 'index'])->name('kategori.index');
+            Route::get('/create', [KategoriController::class, 'create'])->name('create.kategori');
 
-  Route::get('/beranda', [LatihanController::class, 'beranda']);
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/homepage', [App\Http\Controllers\HomepageController::class, 'index']);
-
-Route::get('/about', [HomepageController::class, 'about']);
-Route::get('/kategori', [HomepageController::class, 'kategori']);
-Route::get('/admin', [DashboardController::class, 'dashboard']);
-
-// Route kategori Group
-Route::prefix('/mahasiswa')->group(function(){
-
-    Route::get('/', function () {
-        return view('mahasiswa.index');
         });
 
-    Route::get('/pendaftaran', function() {
-        $nm = "Ini Halaman Pendaftaran";
-        $jd = "Ini Halaman Pendaftaran";
-            return view('mahasiswa.index', compact ('nm', 'jd' ));
-    }) ->name('mahasiswa.pendaftaran');
+        //Route::group parent transaksi
+        Route::group(['prefix' => '/transaksi'], function (){
+            Route::get('/', [TransaksiController::class, 'index'])->name('transaksi.index');
+            Route::get('/create', [TransaksiController::class, 'create'])->name('create.transaksi');
 
-    Route::get('/ujian', function() {
-        $nm = "Ini Halaman Ujian";
-        $jd = "Ini Halaman Ujian";
-            return view('mahasiswa.index', compact ('nm', 'jd' ));
-    }) ->name('mahasiswa.ujian');
+        });
 
-    Route::get('/nilai', function() {
-        $nm = "Ini Halaman Nilai";
-        $jd = "Ini Halaman Nilai";
-            return view('mahasiswa.index', compact ('nm', 'jd' ));
-    }) ->name('mahasiswa.nilai');
-
-
+    Route::get('/transaksi', [TransaksiController::class, 'index'])->name('admin.transaksi');
+    Route::get('/laporan', [LaporanController::class, 'index'])->name('admin.laporan');
 });
+
+//  Route UTS vs Referens Bu Eka
+// Route::get('/mahasiswa', function(){
+//     return view ('mahasiswa/index');
+// });
+
+// Route::group(['prefix' => '/mahasiswa', 'as'=> 'mahasiswa.'], function(){
+//     Route::get('/pendaftaran', function(){
+//         return 'Halaman Pendaftaran';
+//     })->name('pendaftaran');
+//     Route::get('/ujian', function(){
+//         return 'Halaman Ujian';
+//     })->name('ujian');
+
+//     Route::get('/nilai', function(){
+//         return 'Halaman Nilai';
+//     })->name('nilai');
+
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Route::prefix('mahasiswa')->group(function () {
+
+//     Route::get('pendaftaran', function () {
+//         $title = 'Pendaftaran';
+//         $text = 'Halaman Pendaftaran Mahasiswa';
+
+//         return view('mahasiswa.index', compact('title', 'text'));
+//     });
+
+//     Route::get('ujian', function () {
+//         $title = 'ujian';
+//         $text = 'Halaman Ujian Mahasiswa';
+
+//         return view('mahasiswa.index', compact('title', 'text'));
+//     });
+
+//     Route::get('nilai', function () {
+//         $title = 'Nilai';
+//         $text = 'Halaman Nilai Mahasiswa';
+
+//         return view('mahasiswa.index', compact('title', 'text'));
+//     });
+
+// });
+
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/home', function () {
+    return view('home');
+});
+
+
+Route::get('/latihan', [LatihanController::class, 'home']);
+Route::get('/beranda', [LatihanController::class, 'beranda']);
+Route::get('/', [HomepageController::class, 'index']);
+Route::get('/about', [HomepageController::class, 'about']);
+Route::get('/kontak', [HomepageController::class, 'kontak']);
+Route::get('/kategori', [HomepageController::class, 'kategori']);
+
+
+
+
+
 
 

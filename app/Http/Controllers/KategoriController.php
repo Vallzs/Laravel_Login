@@ -6,9 +6,15 @@ use Illuminate\Http\Request;
 
 class KategoriController extends Controller
 {
+
     public function index()
     {
-        $data = array('title' => 'Kategori Produk');
+        $data = array('tittle' => 'Kategori Produk');
         return view('kategori.index', $data);
+    }
+    public function create()
+    {
+        $data = array('tittle' => 'Form Kategori');
+        return view('kategori.create', $data);
     }
 }
